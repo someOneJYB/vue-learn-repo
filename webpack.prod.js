@@ -8,6 +8,7 @@ const commonConfig = require(`./webpack.common.js`);
 const prodConfig = {
     mode: 'production',
     optimization: {
+        sideEffects: true,
         splitChunks: {
             chunks: 'all',   // initial、async和all
             minSize: 30000,   // 形成一个新代码块最小的体积
@@ -36,6 +37,9 @@ const prodConfig = {
         ],
 
     },
-    plugins: [new CleanWebpackPlugin(), new MiniCssExtractPlugin()]
+    plugins: [new CleanWebpackPlugin(), new MiniCssExtractPlugin({
+        filename: '[name].[contenthash:8].css',
+        chunkFilename: '[name].[id].css'
+    })]
 }
 module.exports = merge(prodConfig, commonConfig(false));

@@ -9,10 +9,10 @@ module.exports = function config(isDev) {
     return {
         entry: [path.resolve(dirname, 'src/main.js')],
         output: {
-        path: path.resolve(dirname, 'dist'),
-        filename: '[name].[hash:8].js',
-        publicPath: '/'
-    },
+            path: path.resolve(dirname, 'dist'),
+            filename:  isDev ? '[name].[hash:8].js' : '[name].[contenthash:8].js',
+            publicPath: '/'
+        },
         plugins: [
             new HtmlWebpackPlugin({
                 template: path.resolve(dirname, 'public/index.html'),

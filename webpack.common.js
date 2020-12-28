@@ -21,7 +21,8 @@ module.exports = function config(isDev) {
             new VueLoaderPlugin()
         ],
         resolve: {
-        extensions: ['.js', ".ts", ".tsx", '.jsx']
+            extensions: ['.js', ".ts", ".tsx", '.jsx'],
+            alias: { vue: 'vue/dist/vue.esm.js' }
     },
         module: {
                 rules: [

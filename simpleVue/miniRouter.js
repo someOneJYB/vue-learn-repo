@@ -18,7 +18,7 @@ export default class VueRouter {
     // 判断是否被安装
     static install(Vue) {
         if (VueRouter.install.installed) {
-           return;
+            return;
         }
         VueRouter.install.installed = true;
         // Vue 构造函数记录到全局变量
@@ -40,7 +40,7 @@ export default class VueRouter {
         this.routerMap = {};
         // vue2.6发布的一个新的api，可以处理简单的跨组件共享数据状态的问题
         this.data = _Vue.observable({
-            current: '/'
+            current: '#/'
         })
 
     }
@@ -94,7 +94,6 @@ export default class VueRouter {
             render(h) {
                 const comp = self.routerMap[self.data.current];
                 return h(comp)
-
             },
             // template: '<a :href="to"><slot/></a>'
         })

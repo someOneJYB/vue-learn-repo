@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义vue</title>
+</head>
+<body>
+<div id="app">
+    <h1>{{count1}}</h1>
+    <input v-modal="count"/>
+    <div v-html="htnl"></div>
+    <h1 v-text="arr[0]"></h1>
+    <h1 v-for="item in arr">
+        {{item}}
+    </h1>
+</div>
+</body>
+<script src="./miniVue.js">
+
+// $是公有属性，_是私有属性在vue中 $data真正监听数据 $options构造函数中属性
+    // Observeble 数据劫持通知 dep发布者notify通知watcher进行更新视图，compiler解析指令使其被observer
+    // 负责初始化的参数
+    // data 属性注入 vue 实例
+    // 调用 observer 监听data 属性
+    // compiler 解析指令/差值表达式
+    // vue $options $data
+</script>
+<script>
+    window.v = new Vue({
+        el: '#app',
+        data: {
+            count: 1,
+            count1: 0,
+            htnl: '<p>1234</p>',
+            arr: [1],
+            msg: {
+                text: {
+                    a: 1
+                }
+            }
+        }
+    })
+</script>
+</html>

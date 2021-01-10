@@ -18,7 +18,7 @@ export default class VueRouter {
     // 判断是否被安装
     static install(Vue) {
         if (VueRouter.install.installed) {
-           return;
+            return;
         }
         VueRouter.install.installed = true;
         // Vue 构造函数记录到全局变量
@@ -36,11 +36,13 @@ export default class VueRouter {
         })
     }
     constructor(options) {
+        // 设置成 hash 模式
+        window.location.href = window.location.origin + '/#/' + window.location.href.slice(window.location.origin.length + 1);
         this.options = options;
         this.routerMap = {};
         // vue2.6发布的一个新的api，可以处理简单的跨组件共享数据状态的问题
         this.data = _Vue.observable({
-            current: '/'
+            current: '/#'
         })
 
     }
@@ -55,7 +57,7 @@ export default class VueRouter {
         })
     }
     initEvent() {
-        window.addEventListener('popstate', () => {
+        window.addEventListener('hashchange', () => {
             this.data.current = window.location.pathname;
         })
     }
@@ -92,9 +94,11 @@ export default class VueRouter {
             },
             // h vue 传递的解析函数接受选择器，属性，子组件默认插槽 this.$slots.default,运行时的 vue 不支持 template只能自己写 h 函数
             render(h) {
+                if(self.data.current === '/') {
+                    self.data.current = '/#'
+                }
                 const comp = self.routerMap[self.data.current];
                 return h(comp)
-
             },
             // template: '<a :href="to"><slot/></a>'
         })

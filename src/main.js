@@ -3,23 +3,23 @@ import App from './App.vue'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Page from './views/Page.vue'
-import Vuerouter from './route/index,js'
+import Vuerouter from './route/hash.js'
 import './style.less'
 Vue.use(Vuerouter)
 Vue.config.productionTip = false
 const routes = [
   {
-    path: '/',
+    path: '/#',
     name: 'Home',
     components: Home
   },
   {
-    path: '/about',
+    path: '#/about',
     name: 'about',
     components: About
   },
   {
-    path: '/page',
+    path: '#/page',
     name: 'page',
     components: Page
   }

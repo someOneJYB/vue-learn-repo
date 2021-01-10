@@ -51,4 +51,5 @@ hash.js中
 2、在模拟 Vue.js 响应式源码的基础上实现 v-html 指令，以及 v-on 指令。
 - miniVue.js 中
 3、snabbdom
+  在 https://github.com/someOneJYB/vue-learn-repo/tree/master/snabb-dom 文件中
   ![avatar](  https://github.com/someOneJYB/vue-learn-repo/blob/master/simpleVue/1.png)
